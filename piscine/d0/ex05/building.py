@@ -1,9 +1,11 @@
-import sys
 import string
+import sys
 from typing import Callable
+
 
 def display_results(counts: dict[str, int]) -> None:
     """
+
     fonction qui affiche le resultats du compte,
     prend un dictionnaire en arg de type :
         counts {
@@ -22,24 +24,25 @@ def display_results(counts: dict[str, int]) -> None:
     print(f"{counts['spaces']} spaces")
     print(f"{counts['digits']} digits")
 
-def count_characters_display(text: str, callback: Callable[[dict], None]) -> dict[str, int]:
+
+def count_chdis(text: str, callback: Callable[[dict], None]) -> dict[str, int]:
     """
     fonction qui compte chaque type de caracter puis
     appel la ft de dispaly passer en arguement.
     """
     count = {
             "len": len(text),
-            "upper" : 0,
-            "lower" : 0,
-            "punctuation" : 0,
-            "digits" : 0,
-            "spaces" : 0,
+            "upper": 0,
+            "lower": 0,
+            "punctuation": 0,
+            "digits": 0,
+            "spaces": 0,
     }
     for char in text:
         if (char.isupper()):
             count["upper"] += 1
         elif (char.islower()):
-            count["lower"] += 1 
+            count["lower"] += 1
         elif (char.isdigit()):
             count["digits"] += 1
         elif (char.isspace()):
@@ -47,6 +50,7 @@ def count_characters_display(text: str, callback: Callable[[dict], None]) -> dic
         elif (char in string.punctuation):
             count["punctuation"] += 1
     callback(count)
+
 
 def main():
     """
@@ -62,13 +66,14 @@ def main():
     """
     if len(sys.argv) > 2:
         raise AssertionError("more than one argument is provided")
-    if(len(sys.argv) < 2):
+    if len(sys.argv) < 2:
         print("What is the text to count?")
         text = input()
     else:
         text = sys.argv[1]
         print(f"DEBUG: |{text}|")
-    count_characters_display(text, display_results)
+    count_chdis(text, display_results)
+
 
 if __name__ == "__main__":
     try:
