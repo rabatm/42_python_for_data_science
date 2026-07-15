@@ -1,5 +1,6 @@
-from dic_morse import NESTED_MORSE
 import sys
+
+from dic_morse import NESTED_MORSE
 
 
 def convert_to_morse(msg: str) -> str:
@@ -11,11 +12,13 @@ def convert_to_morse(msg: str) -> str:
             raise AssertionError("the arguments are bad")
     return " ".join(morse_msg)
 
+
 def main():
     if len(sys.argv) != 2:
         raise AssertionError("the arguments are bad")
     morse_msg = convert_to_morse(str(sys.argv[1]))
     print(morse_msg)
+
 
 if __name__ == "__main__":
     try:
